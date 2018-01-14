@@ -74,6 +74,8 @@ func GetSCManager(scmType string) (model.SCManager, error) {
 		manager = &scm.GithubManager{}
 	case "gitlab":
 		manager = &scm.GitlabManager{}
+	case "gitee":
+		manager = &scm.GiteeManager{}
 	}
 	manager = manager.Config(s)
 	return manager, nil
@@ -90,6 +92,8 @@ func GetSCManagerFromSetting(s *model.SCMSetting) (model.SCManager, error) {
 		manager = &scm.GithubManager{}
 	case "gitlab":
 		manager = &scm.GitlabManager{}
+	case "gitee":
+		manager = &scm.GiteeManager{}
 	}
 	manager = manager.Config(s)
 	return manager, nil
